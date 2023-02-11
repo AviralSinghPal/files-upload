@@ -1,11 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {getStorage} from "firebase/storage";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import UserDashboard from "./components/userdashboard";
+import { useHistory } from 'react-router-dom';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyBXVcwZ7tdSj0aSnSsV2JSFF0OL9y-xRug",
   authDomain: "fileupload-38d64.firebaseapp.com",
@@ -18,4 +17,26 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
+export const auth = getAuth(app);
 
+const provider = new GoogleAuthProvider();
+
+export const signInwithGoogle =()=>{
+    signInWithPopup(auth,provider).then((result)=>{
+    console.log(result);
+    const name = result.user.displayName;
+    const email = result.user.email;
+    const profilePic = result.user.photoURL;
+   
+    //go to userdashboard.js
+    localStorage.setItem("name",name);
+    localStorage.setItem("email",email);
+    localStorage.setItem("profilePic",profilePic);
+    
+    // Navigate to the user dashboard page
+    window.location.href = '/dashboard';
+
+  }).catch((err)=>{
+    console.log(err);
+  })
+};
