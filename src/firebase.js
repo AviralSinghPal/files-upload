@@ -33,7 +33,7 @@ export const signInwithGoogle =()=>{
     localStorage.setItem("profilePic",profilePic);
     
     // Navigate to the user dashboard page
-    window.location.href = '/';
+    window.location.href = '/dashboard';
 
   }).catch((err)=>{
     console.log(err);
@@ -43,7 +43,7 @@ export const signInwithGoogle =()=>{
 export const SignOut=()=>{
   signOut(auth).then(() => {
     localStorage.clear();
-    window.location.href = '/login';
+    window.location.href = '/';
   // Sign-out successful.
 }).catch((error) => {
   // An error happened.
