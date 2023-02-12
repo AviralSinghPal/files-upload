@@ -10,11 +10,16 @@ function UserDashboard() {
   
   
 
-  useEffect(() => {    
-    // Check if user is authenticated or not
-    if (!auth.currentUser) {
-      window.location = '/';
-    }
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (!user) {
+        window.location = '/';
+      }
+    });
+  
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   useEffect(() => {    
