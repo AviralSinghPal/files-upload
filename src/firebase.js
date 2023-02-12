@@ -1,9 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {getStorage} from "firebase/storage";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import UserDashboard from "./components/userdashboard";
-import { useHistory } from 'react-router-dom';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBXVcwZ7tdSj0aSnSsV2JSFF0OL9y-xRug",
@@ -39,4 +38,14 @@ export const signInwithGoogle =()=>{
   }).catch((err)=>{
     console.log(err);
   })
+};
+
+export const SignOut=()=>{
+  signOut(auth).then(() => {
+    localStorage.clear();
+    window.location.href = '/';
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+})
 };

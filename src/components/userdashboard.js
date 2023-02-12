@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { storage } from '../firebase';
+import {auth, SignOut, storage } from '../firebase';
 import {getDownloadURL, listAll, ref, uploadBytes} from "firebase/storage";
 import {v4} from "uuid";
-import './userdashboard.css'
+import './userdashboard.css';
 
 function UserDashboard() {
   const [files, setFiles] = useState([]);
   const [file, setFile] = useState(null);
   
   
+
+  useEffect(() => {    
+    // Check if user is authenticated or not
+    if (!auth.currentUser) {
+      window.location = '/';
+    }
+  }, []);
+
   useEffect(() => {    
     
     const listRef = ref(storage,`files/${localStorage.getItem("email")}/`);
@@ -38,12 +46,19 @@ const handleFileUpload = async () => {
 
 
   return (
-    <div className="container">
+    <div className="user-container">
+       <div className="user-header">
+    <img src={localStorage.getItem("profilePic")} alt={localStorage.getItem("name")} />
+    <h2>{localStorage.getItem("name")}</h2>
+    <p>{localStorage.getItem("email")}</p>
+  </div>
   <input type="file" onChange={(event) => setFile(event.target.files[0])} />
   <button onClick={handleFileUpload}>Upload</button>
   {files.map((file, index) => (
-    <a target='_blank'  href={file} key={index}>{`File ${index + 1}`}</a>
+    <a target='blank'  href={file} key={index}>{`File ${index + 1}`}</a>
   ))}
+
+  <button onClick={SignOut}>Sign Out</button>
 </div>
   );
 }

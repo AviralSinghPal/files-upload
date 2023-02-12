@@ -1,26 +1,31 @@
-.container {
+.user-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 0;
+    color: aliceblue;
+    height: 100vh;
+    width: 100vw;
+    background-color: #333;
   }
 
   input[type="file"] {
+    margin-top: 50px;
     padding: 10px;
     margin-bottom: 20px;
   }
 
   button {
     padding: 10px 20px;
-    background-color: lightblue;
+    background-color: rgb(10, 133, 133);
     border: none;
     border-radius: 5px;
     color: white;
     cursor: pointer;
+    margin: 20px;
   }
 
   button:hover {
-    background-color: blue;
+    background-color: rgb(9, 77, 88);
   }
 
   button:disabled {
@@ -33,5 +38,38 @@
     margin-top: 20px;
     font-size: 18px;
     text-decoration: none;
-    color: black;
+    color: rgb(216, 214, 197);
   }
+  .user-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0px 0;
+    width: 100vw;
+    height: 15vh;
+    background-color: rgb(5, 148, 148);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+  
+  
+  .user-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .user-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    color:aliceblue;
+  }
+  
+  .user-header p {
+    margin: 0;
+    font-size: 1.2em;
+    color: aliceblue;
+  }
+  
