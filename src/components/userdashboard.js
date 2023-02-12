@@ -13,7 +13,7 @@ function UserDashboard() {
   useEffect(() => {    
     // Check if user is authenticated or not
     if (!auth.currentUser) {
-      window.location = '/';
+      window.location = '/login';
     }
   }, []);
 
