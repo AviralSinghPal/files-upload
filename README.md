@@ -7,9 +7,11 @@ With its simple and user-friendly interface, uploading and managing your files h
 ## Features
 
 
+- **Hasselfree login:** sign in with just your Email Id directly.
+
 - **Multiple file types supported:** Store any kind of file, including documents, images, videos, and more.
 
-- **Access from anywhere:** Log in to your FileHub account from any device with an internet connection to access your files.
+- **Access from anywhere:** Log in to your Upload Central account from any device with an internet connection to access your files.
 
 ## Get started
 
