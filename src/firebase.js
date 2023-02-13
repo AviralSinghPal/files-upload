@@ -27,7 +27,7 @@ export const signInwithGoogle =()=>{
     const email = result.user.email;
     const profilePic = result.user.photoURL;
    
-    //go to userdashboard.js
+    
     localStorage.setItem("name",name);
     localStorage.setItem("email",email);
     localStorage.setItem("profilePic",profilePic);
@@ -44,8 +44,8 @@ export const SignOut=()=>{
   signOut(auth).then(() => {
     localStorage.clear();
     window.location.href = '/';
-  // Sign-out successful.
+  
 }).catch((error) => {
-  // An error happened.
+  console.log(error);
 })
 };

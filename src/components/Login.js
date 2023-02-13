@@ -4,11 +4,11 @@ import "./login.css";
 
 const Login = () => {
   return (
-    <div className="container">
-      <img src={require('./Logo.png')} alt='My Logo' />
+    <div className="logindiv">
+      <img className='logo' src={require('./Logo.png')} alt='My Logo' />
 
 
-      <button onClick={signInwithGoogle} >Login with Google</button>
+      <button className='signin' onClick={signInwithGoogle} >Login with Google</button>
      
     </div>
   );
